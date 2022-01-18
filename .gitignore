@@ -1,0 +1,5 @@
+.DS_Store
+.zcompdump*
+.zsh.template
+.zsh_history
+notes.txt

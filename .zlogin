@@ -1,0 +1,1 @@
+# .zlogin - You can consider the shell to be fully set up at .zlogin execution time

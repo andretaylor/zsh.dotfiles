@@ -1,0 +1,1 @@
+# .zlogout - Clear out terminal or any other resource which was setup at login.
