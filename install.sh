@@ -22,13 +22,7 @@ for zsh_file in $zsh_files; do
 done
 
 unset backup_directory zsh_file zsh_files
-
 unsetopt extended_glob
-
-# if [[ ! -d $HOME/.config/zsh]]; then
-#   mkdir -p "${HOME}/.config/zsh"
-# fi
-
 
 #-------------------------------------------------------------
 # Symlink .zshenv

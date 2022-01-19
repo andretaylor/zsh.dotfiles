@@ -26,6 +26,7 @@ function load_shell() {
 
   for shell_file in $shell_files[@]; do
     if [[ -s "${shell_file}" ]]; then
+      echo "${COLOR_YELLOW}Loading:${COLOR_RESET} ${shell_file}"
       source "${shell_file}"
     fi
   done

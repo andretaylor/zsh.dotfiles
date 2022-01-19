@@ -14,8 +14,8 @@ An opinionated Zsh environment setup tailored to my specific needs.
 
 Open a terminal and run the following commands:
 
-1. `git clone git@github.com:andretaylor/.zsh_configs.git $HOME/.config/zsh`
-2. `cd $HOME/.config/zsh; chmod +x .install.sh; ./install.sh`
+1. `git clone git@github.com:andretaylor/zsh.dotfiles.git $HOME/.config/zsh`
+2. `cd $HOME/.config/zsh && chmod +x install.sh && ./install.sh`
    <br />
    <br />
 

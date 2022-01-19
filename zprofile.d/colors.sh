@@ -1,13 +1,5 @@
 #!/bin/zsh
 
-#-------------------------------------------------------------
-# Color constants
-#
-# Globals:
-#   ${fg[color]}
-#   ${reset_color}
-#-------------------------------------------------------------
-
 export readonly COLOR_RED=${fg[red]}
 export readonly COLOR_GREEN=${fg[green]}
 export readonly COLOR_YELLOW=${fg[yellow]}
