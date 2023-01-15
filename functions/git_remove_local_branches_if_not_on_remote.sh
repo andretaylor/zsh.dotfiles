@@ -15,16 +15,12 @@
 #-------------------------------------------------------------
 
 function git_remove_local_branches_if_not_on_remote() {
-  if [[ -n "${1}" ]]; then
-    git checkout main &&
-    git pull &&
-    git remote prune origin &&
-    git branch --merged \
-      | egrep -v "(^\*|main|dev)" \
-      | xargs git branch -d origin/
-  else
-    echo "${COLOR_RED}Error:${COLOR_RESET} Branch name needed!"
-  fi
+  git checkout main &&
+  git pull &&
+  # git remote prune origin &&
+  git branch --merged \
+    | egrep -v "(^\*|main|dev)" \
+    | xargs git branch -d
 }
 
 alias gkbleach="git_remove_local_branches_if_not_on_remote"

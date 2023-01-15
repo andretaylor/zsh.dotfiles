@@ -9,7 +9,10 @@ fi
 ZSH_THEME="powerlevel10k/powerlevel10k" # Set name of the theme to load
 
 # Plugins
-plugins=(git)
+plugins=(
+  aliases
+  git
+)
 
 # Load OH-MY-ZSH
 source ${ZSH}/oh-my-zsh.sh

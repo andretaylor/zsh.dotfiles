@@ -28,5 +28,4 @@ unsetopt extended_glob
 # Symlink .zshenv
 #-------------------------------------------------------------
 
-# ln -s ${HOME}/.config/zsh/.zshenv ${HOME}/.zshenv
 ln -s ${ZDOTDIR:-"${HOME}/.config/zsh/.zshenv"} ${HOME}/.zshenv

@@ -2,4 +2,5 @@
 .zcompdump*
 .zsh.template
 .zsh_history
+.zsh_sessions
 notes.txt
