@@ -1,18 +1,18 @@
 #!/bin/zsh
 
-#-------------------------------------------------------------
+#------------------------------------------------------------------------------
 # Remove remote branch
 #
 # Globals:
 #   None
 # Arguments:
 #   $1 - Local branch name to delete
-# Alias:
-#   `gkremover`
 # Example:
 #   `git_remove_remote_branch branch-to-delete`
 #   `gkremover branch-to-delete`
-#-------------------------------------------------------------
+# Alias:
+#   `gkremover`
+#------------------------------------------------------------------------------
 
 function git_remove_remote_branch() {
   if [[ -n "${1}" ]]; then
@@ -22,4 +22,4 @@ function git_remove_remote_branch() {
   fi
 }
 
-alias gkremover="git_remove_local_branch_with_force"
+alias gkremover="git_remove_remote_branch"

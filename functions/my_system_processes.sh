@@ -1,22 +1,22 @@
 #!/bin/zsh
 
-#-------------------------------------------------------------
-# Make directory and change into it
+#------------------------------------------------------------------------------
+# Show My Processes
 #
 # Globals:
 #   $USER
 # Arguments:
 #   $@
-# Alias:
-#   `myps`
 # Example:
 #   `my_system_processes`
 #   `myps`
-#-------------------------------------------------------------
+# Alias:
+#   `myps`
+#------------------------------------------------------------------------------
 
 # Show My Processes
 function my_system_processes() {
-  ps $@ -u $USER -o pid,%cpu,%mem,command
+  ps "${@}" -u "${USER}" -o pid,%cpu,%mem,command
 }
 
 alias myps="my_system_processes"
