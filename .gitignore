@@ -1,4 +1,5 @@
 .DS_Store
+.shellcheckrc
 .zcompdump*
 .zsh.template
 .zsh_history

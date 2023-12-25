@@ -1,9 +1,6 @@
 #!/bin/zsh
-
-#-------------------------------------------------------------
-# .zlogin - You can consider the shell to be fully set up at
-# .zlogin execution time
+#------------------------------------------------------------------------------
+# The shell can be considered fully configured upon the execution of .zlogin.
 #
-# Load order:
-#   .zshenv → .zprofile → .zshrc → .zlogin → .zlogout
-#-------------------------------------------------------------
+# Load order: .zshenv → .zprofile → .zshrc → [.zlogin] → .zlogout
+#------------------------------------------------------------------------------

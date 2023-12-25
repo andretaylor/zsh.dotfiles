@@ -1,9 +1,6 @@
 #!/bin/zsh
-
-#-------------------------------------------------------------
-# .zlogin -  Clear out terminal or any other resource which
-# was setup at login.
+#------------------------------------------------------------------------------
+# Clears out the terminal or any other resources initialized during login.
 #
-# Load order:
-#   .zshenv → .zprofile → .zshrc → .zlogin → .zlogout
-#-------------------------------------------------------------
+# Load order: .zshenv → .zprofile → .zshrc → .zlogin → [.zlogout]
+#------------------------------------------------------------------------------

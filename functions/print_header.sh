@@ -1,18 +1,13 @@
-#!/bin/zsh
-
-#-------------------------------------------------------------
+#!/bin/bash
+#------------------------------------------------------------------------------
 # Print ascii header with decorative separators
 #
-# Globals:
-#   None
-# Arguments:
-#   $1 - Header text
-# Example:
-#   `printer_header "This is a header"`
-#-------------------------------------------------------------
+# Arguments: $1 - Header text
+# Example: `printer_header "This is a header"`
+#------------------------------------------------------------------------------
 
 function print_header() {
-  local -r STRING_LENGTH=$(($(echo -n $1 | wc -m) + 4 ))
+  local -r STRING_LENGTH=$(($(echo -n "${1}" | wc -m) + 4 ))
 
   _separator() {
     echo "${$( printf "%${STRING_LENGTH}s" )// /-}"
