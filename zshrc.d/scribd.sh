@@ -2,7 +2,7 @@
 
 #-[ Environment variables ]----------------------------------------------------
 
-export PATH="${PATH}:${HOME}/.yarn/bin:${HOME}/.config/yarn/global/node_modules/.bin"
+# export PATH="${PATH}:${HOME}/.yarn/bin:${HOME}/.config/yarn/global/node_modules/.bin"
 
 readonly SCSC_DIR="${HOME}/Documents/scribd/git/scribd/scribd"
 readonly SCNP_DIR="${HOME}/Documents/scribd/git/scribd/npm-packages"
@@ -64,6 +64,36 @@ code_coverage_diff() {
   rm -rf ./temp
 }
 
+#------------------------------------------------------------------------------
+# Run unit test coverage report
+#
+# Globals:
+#   None
+# Arguments:
+#   $1 - Regex file pattern
+# Example:
+#   `test_coverage` - Run coverage report
+#   `stc Component.spec.js` - Run coverage on Component.spec.js
+# Alias:
+#  `stc`
+#------------------------------------------------------------------------------
+
+function test_coverage() {
+  local -r report_file="/coverage/index.html"
+
+  if [ -n "${1}" ]; then
+    echo "${COLOR_YELLOW}Pattern:${COLOR_RESET} ${1}"
+
+    yarn test "${1}" --coverage
+    open .${report_file}
+  else
+    yarn test:coverage
+    open .${report_file}
+  fi
+}
+
+alias stc="test_coverage"
+
 #-[ Aliases ]------------------------------------------------------------------
 
 # Devkube
@@ -80,16 +110,16 @@ alias dkswap='devkube cluster set'                                              
 alias dkup='devkube init'                                                        # Initialize devkube
 
 # Directories
-alias scnp='cd $SCNP_DIR'                             # Change directory to npm-packages repo
-alias scsc='cd $SCSC_DIR'                             # Change directory to scribd repo
-alias sce2e='cd $SCSC_DIR/end2end'                    # Change directory to end2end
-alias scwam='cd $SCSC_DIR/webpack/account-management' # Change directory to account-management package
-alias scwcp='cd $SCSC_DIR/webpack/content-preview'    # Change directory to content-preview package
-alias scwd='cd $SCSC_DIR/webpack/doc_page'            # Change directory to doc_page package
-alias scwe='cd $SCSC_DIR/webpack/explore'             # Change directory to explore package
-alias scwlp='cd $SCSC_DIR/webpack/landing-pages'      # Change directory to search package
-alias scwm='cd $SCSC_DIR/webpack/monolith'            # Change directory to monolith package
-alias scws='cd $SCSC_DIR/webpack/search'              # Change directory to search package
+alias scnp='cd ${SCNP_DIR}'                             # Change directory to npm-packages repo
+alias scsc='cd ${SCSC_DIR}'                             # Change directory to scribd repo
+alias sce2e='cd ${SCSC_DIR}/end2end'                    # Change directory to end2end
+alias scwam='cd ${SCSC_DIR}/webpack/account-management' # Change directory to account-management package
+alias scwcp='cd ${SCSC_DIR}/webpack/content-preview'    # Change directory to content-preview package
+alias scwd='cd ${SCSC_DIR}/webpack/doc_page'            # Change directory to doc_page package
+alias scwe='cd ${SCSC_DIR}/webpack/explore'             # Change directory to explore package
+alias scwlp='cd ${SCSC_DIR}/webpack/landing-pages'      # Change directory to search package
+alias scwm='cd ${SCSC_DIR}/webpack/monolith'            # Change directory to monolith package
+alias scws='cd ${SCSC_DIR}/webpack/search'              # Change directory to search package
 
 # Miscellaneous
 alias ysb='yarn storybook'                         # Launch storybook

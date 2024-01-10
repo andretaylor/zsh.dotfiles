@@ -9,9 +9,7 @@
 #------------------------------------------------------------------------------
 
 #-[ Environmental variables ]--------------------------------------------------
-export XDG_CACHE_HOME=${XDG_CACHE_HOME:-${HOME}/.cache}    # non-essential data
-export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-${HOME}/.config} # user-specific configuration
-export ZDOTDIR=${ZDOTDIR:-${HOME}/.config/zsh}             # Zsh configuration directory
+export ZDOTDIR="${ZDOTDIR:-$HOME/.config/zsh}" # Zsh configuration directory
 
 #------------------------------------------------------------------------------
 # Loads all files in the zshenv.d directory. This is useful for defining
@@ -29,16 +27,5 @@ function load_zshenv_files() {
   unset zshenv_file
 }
 
-#------------------------------------------------------------------------------
-# Loads the Zsh configuration file for non-interactive shells.
-#------------------------------------------------------------------------------
-function setup_non_interactive_shell_env() {
-  if [[ ("${SHLVL}" -eq 1 && ! -o LOGIN) && -s "${ZDOTDIR:-${HOME}}/.zprofile" ]]; then
-    source "${ZDOTDIR}/.zprofile"
-  fi
-}
-
 load_zshenv_files
-setup_non_interactive_shell_env
 unset load_zshenv_files
-unset setup_non_interactive_shell_env

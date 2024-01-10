@@ -13,13 +13,32 @@
 # Load order: .zshenv → [.zprofile] → .zshrc → .zlogin → .zlogout
 #------------------------------------------------------------------------------
 
-#-[ Environmental variables ]-------------------------------------------------
-readonly NVM_DIR="${NVM_DIR:-${HOME}/.nvm}" # Path to nvm installation
-readonly ZSH="${ZSH:-${HOME}/.oh-my-zsh}"   # Path to oh-my-zsh installation
+#-[ Environmental variables ]--------------------------------------------------
+export NVM_DIR="${NVM_DIR:-$HOME/.nvm}"                    # Path to nvm installation
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"    # non-essential data
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}" # user-specific configuration
+export ZSH="${ZSH:-$HOME/.oh-my-zsh}"                      # Path to oh-my-zsh installation
 
-export NVM_DIR
-export ZSH
-export PATH="${PATH}:${HOME}:${HOME}/bin:/usr/local/bin:${HOME}/Library"
+# Define the PATH variable
+path=(
+  $path
+  ${HOME}
+  ${HOME}/bin
+  /usr/local/bin
+  ${HOME}/.yarn/bin
+  ${HOME}/.config/yarn/global/node_modules/.bin
+  ${HOME}/Library
+  ${ZSH}
+)
+
+#------------------------------------------------------------------------------
+# Loads the Zsh configuration file for non-interactive shells.
+#------------------------------------------------------------------------------
+function setup_non_interactive_shell_env() {
+  if [[ ("${SHLVL}" -eq 1 && ! -o LOGIN) && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
+    source "${ZDOTDIR:-$HOME}/.zprofile"
+  fi
+}
 
 #------------------------------------------------------------------------------
 # Load zprofile files
@@ -55,8 +74,10 @@ function load_zprofile_functions() {
   unset zprofile_functions
 }
 
+setup_non_interactive_shell_env
 load_zprofile_files
 load_zprofile_functions
 
+unset setup_non_interactive_shell_env
 unset load_zprofile_files
 unset load_zprofile_functions
