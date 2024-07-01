@@ -1,11 +1,9 @@
 #!/bin/zsh
 
-# https://zsh.sourceforge.io/Doc/Release/Options.html
+#-[ Zsh Options ]--------------------------------------------------------------
+setopt NO_CASE_GLOB     # Case Insensitive Globbing
+setopt EXTENDED_HISTORY # Save timestamp and duration of command in history
 
-setopt NO_CASE_GLOB #Case Insensitive Globbing
-setopt AUTO_CD #Automatic CD
-setopt EXTENDED_HISTORY #
+# autoload -U colors && colors
 
 unsetopt SHARE_HISTORY # Turn off shared history
-
-# https://github.com/ricbra/zsh-config/blob/master/zshrc

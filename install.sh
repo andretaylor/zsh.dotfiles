@@ -1,31 +1,37 @@
-#!/bin/zsh
+#!/bin/bash
 
-#-------------------------------------------------------------
+#------------------------------------------------------------------------------
 # Backup files
-#-------------------------------------------------------------
-setopt extended_glob
+#------------------------------------------------------------------------------
+# setopt extended_glob
 
 zsh_files=(
-  ${ZDOTDIR:-$HOME}/.zlogin(.N)
-  ${ZDOTDIR:-$HOME}/.zlogout(.N)
-  ${ZDOTDIR:-$HOME}/.zprofile(.N)
-  ${ZDOTDIR:-$HOME}/.zsh_history(.N)
-  ${ZDOTDIR:-$HOME}/.zshenv(.N)
-  ${ZDOTDIR:-$HOME}/.zshrc(.N)
+  ".zshenv"
+  ".zprofile"
+  ".zshrc"
+  ".zlogin"
+  ".zlogout"
+  ".zsh_history"
 )
 
-backup_directory="${HOME}/.zsh_bak_`(date +%Y%m%d-%H%M%S)`"
-mkdir -p "${backup_directory}"
+#back up files
+# backup_directory="${HOME}/.zsh_bak_$(date +%Y%m%d-%H%M%S)"
+# mkdir -p "${backup_directory}"
 
-for zsh_file in $zsh_files; do
-  cp $zsh_file "${backup_directory}"
+# for zsh_file in "${zsh_files[@]}"; do
+#   mv "${ZDOTDIR:-$HOME}/${zsh_file}" "${backup_directory}"
+# done
+
+#------------------------------------------------------------------------------
+# Symlink .zshenv
+#------------------------------------------------------------------------------
+
+for zsh_file in "${zsh_files[@]}"; do
+  ln -s "${HOME}/.config/zsh/${zsh_file}" "${HOME}/${zsh_file}"
 done
 
-unset backup_directory zsh_file zsh_files
-unsetopt extended_glob
+# unset backup_directory
+unset zsh_file
+unset zsh_files
 
-#-------------------------------------------------------------
-# Symlink .zshenv
-#-------------------------------------------------------------
-
-ln -s ${ZDOTDIR:-"${HOME}/.config/zsh/.zshenv"} ${HOME}/.zshenv
+# unsetopt extended_glob

@@ -1,0 +1,19 @@
+#!/bin/bash
+#------------------------------------------------------------------------------
+# Print ascii header with decorative separators
+#
+# Arguments: $1 - Header text
+# Example: `printer_header "This is a header"`
+#------------------------------------------------------------------------------
+
+function print_header() {
+  local -r STRING_LENGTH=$(($(echo -n "${1}" | wc -m) + 4 ))
+
+  _separator() {
+    echo "${$( printf "%${STRING_LENGTH}s" )// /-}"
+  }
+
+  _separator
+  echo "| ${1} |"
+  _separator
+}
