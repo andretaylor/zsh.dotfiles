@@ -6,14 +6,13 @@
 
 # Load NVM
 if [[ -s "${NVM_DIR}/nvm.sh" ]]; then
- source "${NVM_DIR}/nvm.sh"
+  source "${NVM_DIR}/nvm.sh"
 fi
 
 # Load NVM bash_completion
-if [[ -s "${NVM_DIR}/bash_completion" ]]; then
-  source "${NVM_DIR}/bash_completion"
-fi
-
+# if [[ -s "${NVM_DIR}/bash_completion" ]]; then
+#   source "${NVM_DIR}/bash_completion"
+# fi
 
 # https://www.growingwiththeweb.com/2018/01/slow-nvm-init.html
 # Defer initialization of nvm until nvm, node or a node-dependent command is
