@@ -14,10 +14,10 @@
 #-------------------------------------------------------------
 export PATH="${PATH}:${HOME}:${HOME}/bin:/usr/local/bin:${HOME}/Library"
 
-export readonly NVM_DIR="${HOME}/.nvm"
-export readonly RAND=$(openssl rand -hex 10)
-# Path to your oh-my-zsh installation.
-export readonly ZSH="${HOME}/.oh-my-zsh"
+# export readonly NVM_DIR="${HOME}/.nvm"
+# export readonly RAND=$(openssl rand -hex 10)
+# # Path to your oh-my-zsh installation.
+# export readonly ZSH="${HOME}/.oh-my-zsh"
 
 for zprofile_file in $ZDOTDIR/zprofile.d/*; do
   if [[ -s "${zprofile_file}" ]]; then
@@ -36,3 +36,5 @@ for zprofile_functions in $ZDOTDIR/functions/*; do
 done
 unset zprofile_functions
 
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+source /usr/local/opt/chruby/share/chruby/auto.sh
